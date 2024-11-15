@@ -4,6 +4,8 @@ import { Menu, X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Component() {
   const [hoveredSection, setHoveredSection] = useState<string | null>(null)
@@ -14,7 +16,7 @@ export default function Component() {
       {/* Header */}
       <header className="absolute top-0 left-0 w-full z-50 p-4">
         <div className="flex justify-between items-center">
-          <div className="text-xl font-bold text-white">wrk.</div>
+          <Link href="/" className="text-2xl font-bold text-white">wrk.</Link>
           <Button 
             variant="ghost" 
             size="icon" 
@@ -48,16 +50,19 @@ export default function Component() {
                       <span className="inline-block mr-2">◆</span>
                       CONTACT
                     </h2>
-                    <a href="mailto:hello@waaark.com" className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity">
+                    <Link 
+                      href="mailto:hello@waaark.com" 
+                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                    >
                       hello@waaark.com
-                    </a>
+                    </Link>
                   </div>
                   <div className="flex gap-3 text-white text-sm tracking-wider">
-                    <a href="#" className="hover:opacity-80 transition-opacity">FACEBOOK</a>
+                    <Link href="#" className="hover:opacity-80 transition-opacity">FACEBOOK</Link>
                     <span>•</span>
-                    <a href="#" className="hover:opacity-80 transition-opacity">TWITTER</a>
+                    <Link href="#" className="hover:opacity-80 transition-opacity">TWITTER</Link>
                     <span>•</span>
-                    <a href="#" className="hover:opacity-80 transition-opacity">LINKEDIN</a>
+                    <Link href="#" className="hover:opacity-80 transition-opacity">LINKEDIN</Link>
                   </div>
                 </div>
               </div>
@@ -70,33 +75,33 @@ export default function Component() {
                     NAVIGATION
                   </h2>
                   <nav className="space-y-6">
-                    <motion.a
-                      href="vision"
-                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                    <motion.div
                       initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.1 }}
                     >
-                      Vision
-                    </motion.a>
-                    <motion.a
-                      href="works"
-                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                      <Link href="/vision" className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity">
+                        Vision
+                      </Link>
+                    </motion.div>
+                    <motion.div
                       initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      Works
-                    </motion.a>
-                    <motion.a
-                      href="studio"
-                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                      <Link href="/works" className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity">
+                        Works
+                      </Link>
+                    </motion.div>
+                    <motion.div
                       initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
-                      Studio
-                    </motion.a>
+                      <Link href="/studio" className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity">
+                        Studio
+                      </Link>
+                    </motion.div>
                   </nav>
                 </div>
               </div>

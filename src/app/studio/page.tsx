@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { motion, useScroll, useTransform, animate } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -117,7 +119,7 @@ export default function Component() {
 
       <header className="fixed top-0 left-0 w-full z-50 p-4">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <a href="/" className="text-2xl font-bold text-white flex items-center">
+          <Link href="/" className="text-2xl font-bold text-white flex items-center">
             wrk
             <div className="flex ml-1 space-x-1">
               {[...Array(3)].map((_, i) => (
@@ -138,7 +140,7 @@ export default function Component() {
                 </motion.span>
               ))}
             </div>
-          </a>
+          </Link>
           <nav className="fixed right-8 top-8 flex flex-col items-end space-y-4 text-sm">
             <Button 
               variant="ghost" 
@@ -150,7 +152,7 @@ export default function Component() {
             </Button>
             {!isMenuOpen && (
               <>
-                <a 
+                <Link 
                   href="#studio" 
                   className={`transition-colors ${
                     activeSection === 'studio' 
@@ -159,8 +161,8 @@ export default function Component() {
                   }`}
                 >
                   STUDIO
-                </a>
-                <a 
+                </Link>
+                <Link 
                   href="#team" 
                   className={`transition-colors ${
                     activeSection === 'team' 
@@ -169,8 +171,8 @@ export default function Component() {
                   }`}
                 >
                   TEAM
-                </a>
-                <a 
+                </Link>
+                <Link 
                   href="#contact" 
                   className={`transition-colors ${
                     activeSection === 'contact' 
@@ -179,7 +181,7 @@ export default function Component() {
                   }`}
                 >
                   CONTACT
-                </a>
+                </Link>
               </>
             )}
           </nav>
@@ -232,8 +234,8 @@ export default function Component() {
           {/* Team Member 1 */}
           <div className="lg:w-1/3 bg-[#24305e] flex items-center justify-center p-8 lg:p-16">
             <div className="text-center">
-              <div className="mb-8 aspect-square">
-                <img
+              <div className="mb-8 aspect-square relative">
+                <Image
                   src="/image1.png"
                   alt="Art Director illustration"
                   width={400}
@@ -254,8 +256,8 @@ export default function Component() {
           {/* Team Member 2 */}
           <div className="lg:w-1/3 bg-[#24305e] flex items-center justify-center p-8 lg:p-16">
             <div className="text-center">
-              <div className="mb-8 aspect-square">
-                <img
+              <div className="mb-8 aspect-square relative">
+                <Image
                   src="/image2.png"
                   alt="Developer illustration"
                   width={400}
@@ -285,15 +287,15 @@ export default function Component() {
         <div className="flex flex-col items-center justify-center h-full px-6 text-center">
           <div className="space-y-8">
             <h2 className="text-[#FF6B6B] text-sm uppercase tracking-wider">Contact Us</h2>
-            <a href="mailto:hello@wrk.com" className="text-4xl md:text-6xl font-light hover:underline text-white">
+            <Link href="mailto:hello@wrk.com" className="text-4xl md:text-6xl font-light hover:underline text-white">
               hello@wrk.com
-            </a>
+            </Link>
             <div className="text-sm space-x-2 text-white">
-              <a href="#" className="hover:underline">FACEBOOK</a>
+              <Link href="#" className="hover:underline">FACEBOOK</Link>
               <span>•</span>
-              <a href="#" className="hover:underline">TWITTER</a>
+              <Link href="#" className="hover:underline">TWITTER</Link>
               <span>•</span>
-              <a href="#" className="hover:underline">LINKEDIN</a>
+              <Link href="#" className="hover:underline">LINKEDIN</Link>
             </div>
           </div>
         </div>
@@ -324,16 +326,19 @@ export default function Component() {
                       <span className="inline-block mr-2">◆</span>
                       CONTACT
                     </h2>
-                    <a href="mailto:hello@waaark.com" className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity">
+                    <Link 
+                      href="mailto:hello@waaark.com" 
+                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                    >
                       hello@waaark.com
-                    </a>
+                    </Link>
                   </div>
                   <div className="flex gap-3 text-white text-sm tracking-wider">
-                    <a href="#" className="hover:opacity-80 transition-opacity">FACEBOOK</a>
+                    <Link href="#" className="hover:opacity-80 transition-opacity">FACEBOOK</Link>
                     <span>•</span>
-                    <a href="#" className="hover:opacity-80 transition-opacity">TWITTER</a>
+                    <Link href="#" className="hover:opacity-80 transition-opacity">TWITTER</Link>
                     <span>•</span>
-                    <a href="#" className="hover:opacity-80 transition-opacity">LINKEDIN</a>
+                    <Link href="#" className="hover:opacity-80 transition-opacity">LINKEDIN</Link>
                   </div>
                 </div>
               </div>
@@ -346,33 +351,42 @@ export default function Component() {
                     NAVIGATION
                   </h2>
                   <nav className="space-y-6">
-                    <motion.a
-                      href="/vision"
-                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                    <motion.div
                       initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.1 }}
                     >
-                      Vision
-                    </motion.a>
-                    <motion.a
-                      href="/works"
-                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                      <Link 
+                        href="/vision" 
+                        className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                      >
+                        Vision
+                      </Link>
+                    </motion.div>
+                    <motion.div
                       initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      Works
-                    </motion.a>
-                    <motion.a
-                      href="/studio"
-                      className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                      <Link 
+                        href="/works" 
+                        className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                      >
+                        Works
+                      </Link>
+                    </motion.div>
+                    <motion.div
                       initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
-                      Studio
-                    </motion.a>
+                      <Link 
+                        href="/studio" 
+                        className="block text-5xl font-serif text-white hover:opacity-80 transition-opacity"
+                      >
+                        Studio
+                      </Link>
+                    </motion.div>
                   </nav>
                 </div>
               </div>
